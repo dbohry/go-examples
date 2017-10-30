@@ -1,16 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func sqrt(x float64) float64 {
-	z:= 0.0
-	for i := 0; i < 1000; i++ {
-		z -= (z*z - x) / (2 * x)
-	}
-	return z
+func simulateEvent(name string, t time.Duration) {
+	fmt.Println("Started ", name, ": Should take", t, "seconds.")
+	time.Sleep(t * 1e9)
+	fmt.Println("Finished ", name)
 }
 
 func main() {
-	val := 9987665555.0
-	fmt.Println(sqrt(val))
+	go simulateEvent("Example 1", 10)
+	go simulateEvent("Example 2", 3)
+	go simulateEvent("Example 3", 5)
+	go simulateEvent("Example 4", 12)
+
+	time.Sleep(13 * 1e9)
 }
