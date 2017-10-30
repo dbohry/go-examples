@@ -18,7 +18,7 @@ func main() {
 func player(player string, table chan int) {
     for {
 		ball := <-table
-		fmt.Println(player, ball);
+		fmt.Println(player, ball)
         ball++
         time.Sleep(100 * time.Millisecond)
         table <- ball
