@@ -12,10 +12,9 @@ func simulateEvent(name string, t time.Duration) {
 }
 
 func main() {
-	go simulateEvent("Example 1", 10)
-	go simulateEvent("Example 2", 3)
-	go simulateEvent("Example 3", 5)
-	go simulateEvent("Example 4", 12)
+	go simulateEvent("100m sprint", 10)
+	go simulateEvent("Long jump", 6)
+	go simulateEvent("High jump", 3)
 
-	time.Sleep(13 * 1e9)
+	time.Sleep(10 * 1e9)
 }
